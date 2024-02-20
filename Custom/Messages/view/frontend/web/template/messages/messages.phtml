@@ -1,0 +1,20 @@
+<script>
+    require(['jquery', 'Custom_Messages/js/custom-messages'], function ($) {
+        $(document).ready(function () {
+            $.widget('custom.customMessages', {
+                options: {
+                    autoOpen: true
+                },
+            });
+        });
+    });
+</script>
+<div data-bind="scope: 'custom.customMessages'">
+    <!-- Personaliza el contenido del mensaje aquí -->
+    <div role="alert" class="message message-<?= /* @noEscape */ $block->escapeHtmlAttr($block->getType()) ?>">
+        <div data-bind="html: $parent.message"></div>
+        <button type="button" class="action-close" title="<?= __('Cerrar') ?>">
+            <span><?= __('Cerrar') ?></span>
+        </button>
+    </div>
+</div>
